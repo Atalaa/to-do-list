@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ToDoItem from "./components/ToDoItem";
 
 function App() {
   const [task, setTask] = useState("");
@@ -11,13 +12,9 @@ function App() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    if (task === "") {
-      return;
-    }
     setTaskList((prevTask) => {
       return [...prevTask, task];
     });
-
     setTask("");
   };
 
@@ -34,6 +31,7 @@ function App() {
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
+
       <div className="form">
         <form>
           <input name="item" value={task} type="text" onChange={handleChange} />
@@ -42,18 +40,11 @@ function App() {
           </button>
         </form>
       </div>
-      <div>
-        <ul>
-          {taskList.map((item, index) => (
-            <li key={item}>
-              {item}{" "}
-              <span className="close" onClick={() => deleteTask(index)}>
-                X
-              </span>
-            </li>
-          ))}
-        </ul>
+
+      <div className="list">
+        <ul> <ToDoItem text={taskList} deleteTask={deleteTask}/></ul>
       </div>
+
     </div>
   );
 }
