@@ -10,7 +10,7 @@ function App() {
     setTask(newVvalue);
   };
 
-  const handleClick = (e) => {
+  const addTask = (e) => {
     e.preventDefault();
     setTaskList((prevTask) => {
       return [...prevTask, task];
@@ -18,12 +18,12 @@ function App() {
     setTask("");
   };
 
-  const deleteTask = (index) => {
-    const arrList = [...taskList];
-    arrList.splice(index, 1);
-    console.log(arrList);
-
-    setTaskList(arrList);
+  const deleteTask = (id) => {
+    setTaskList(preValue => {
+      return preValue.filter( (item, index) => {
+        return index !== id;
+      })
+    });
   };
 
   return (
@@ -35,14 +35,21 @@ function App() {
       <div className="form">
         <form>
           <input name="item" value={task} type="text" onChange={handleChange} />
-          <button onClick={handleClick}>
+          <button onClick={addTask}>
             <span>Add</span>
           </button>
         </form>
       </div>
 
       <div className="list">
-        <ul> <ToDoItem text={taskList} deleteTask={deleteTask}/></ul>
+        <ul>  
+          {
+            taskList.map((toDoItem, index) => (
+              <ToDoItem key={index} id={index} text={toDoItem} deleteTask={deleteTask} />
+            ))
+          }
+            
+        </ul>
       </div>
 
     </div>
