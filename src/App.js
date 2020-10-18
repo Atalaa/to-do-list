@@ -1,21 +1,14 @@
 import React, { useState } from "react";
 import ToDoItem from "./components/ToDoItem";
+import InputArea from "./components/InputArea";
 
 function App() {
-  const [task, setTask] = useState("");
   const [taskList, setTaskList] = useState([]);
 
-  const handleChange = (e) => {
-    const newVvalue = e.target.value;
-    setTask(newVvalue);
-  };
-
-  const addTask = (e) => {
-    e.preventDefault();
-    setTaskList((prevTask) => {
+  const addTask = (task) => {
+    setTaskList( prevTask => {
       return [...prevTask, task];
     });
-    setTask("");
   };
 
   const deleteTask = (id) => {
@@ -32,23 +25,20 @@ function App() {
         <h1>To-Do List</h1>
       </div>
 
-      <div className="form">
-        <form>
-          <input name="item" value={task} type="text" onChange={handleChange} />
-          <button onClick={addTask}>
-            <span>Add</span>
-          </button>
-        </form>
-      </div>
+      <InputArea onAdd={addTask} />
 
       <div className="list">
         <ul>  
           {
             taskList.map((toDoItem, index) => (
-              <ToDoItem key={index} id={index} text={toDoItem} deleteTask={deleteTask} />
+              <ToDoItem 
+                key={index} 
+                id={index} 
+                text={toDoItem} 
+                deleteTask={deleteTask}
+              />
             ))
           }
-            
         </ul>
       </div>
 
