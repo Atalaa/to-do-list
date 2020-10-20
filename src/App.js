@@ -13,7 +13,7 @@ function App() {
 
   const deleteTask = (id) => {
     setTaskList(preValue => {
-      return preValue.filter( (item, index) => {
+      return preValue.filter( (currentItem, index) => {
         return index !== id;
       })
     });
@@ -35,7 +35,7 @@ function App() {
                 key={index} 
                 id={index} 
                 text={toDoItem} 
-                deleteTask={deleteTask}
+                onDelete={deleteTask}
               />
             ))
           }

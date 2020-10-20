@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const InputArea = (props) => {
   const [task, setTask] = useState("");
+  
   const handleChange = (e) => {
     const newVvalue = e.target.value;
     setTask(newVvalue);
@@ -12,8 +13,8 @@ const InputArea = (props) => {
       <form>
         <input name="item" value={task} type="text" onChange={handleChange} />
         <button onClick={(e) => {
-          props.onAdd(task);
           e.preventDefault();
+          props.onAdd(task);
           setTask("");
         }}>
           <span>Add</span>

@@ -4,7 +4,7 @@ const ToDoItem = (props) => {
   return (
       <li>
         {props.text}
-        <span className="close" onClick={() => props.deleteTask(props.id)}>X</span>
+        <span className="close" onClick={() => props.onDelete(props.id)}>X</span>
       </li>
   );
 };
