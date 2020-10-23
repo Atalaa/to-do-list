@@ -20,21 +20,12 @@ const InputArea = (props) => {
           value={task} 
           placeholder="Take a note..."
           onChange={handleChange} />
-        {/* <button onClick={(e) => {
-          e.preventDefault();
-          props.onAdd(task);
-          setTask("");
-        }}>
-          Add
-        </button> */}
 
         <Button variant="contained" style={{backgroundColor:'#fdcb6e'}} onClick={(e) => {
             e.preventDefault();
             props.onAdd(task);
             setTask("");
-          }}>
-          {/* <span>Add</span> */}
-        
+          }}>        
           Add
         </Button>
 
