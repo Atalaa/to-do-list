@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
+
 
 const InputArea = (props) => {
   const [task, setTask] = useState("");
@@ -11,14 +13,31 @@ const InputArea = (props) => {
   return (
     <div className="form">
       <form>
-        <input name="item" value={task} type="text" onChange={handleChange} />
-        <button onClick={(e) => {
+        <input 
+          maxLength = "15"
+          type="text"
+          name="item" 
+          value={task} 
+          placeholder="Take a note..."
+          onChange={handleChange} />
+        {/* <button onClick={(e) => {
           e.preventDefault();
           props.onAdd(task);
           setTask("");
         }}>
-          <span>Add</span>
-        </button>
+          Add
+        </button> */}
+
+        <Button variant="contained" style={{backgroundColor:'#fdcb6e'}} onClick={(e) => {
+            e.preventDefault();
+            props.onAdd(task);
+            setTask("");
+          }}>
+          {/* <span>Add</span> */}
+        
+          Add
+        </Button>
+
       </form>
     </div>
   );

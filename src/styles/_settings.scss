@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Turret+Road&display=swap');
+
+$font-1: 'Turret Road';
+
 * {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -7,7 +11,8 @@
 }
 
 body {
-  background-color: #ffeaa7;
+  background-color: #d9e4dd;
+  background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
   min-height: 70vh;
   padding: 1rem;
   box-sizing: border-box;
@@ -15,7 +20,7 @@ body {
   justify-content: center;
   align-items: center;
   color: hsl(198, 1%, 29%);
-  font-family: "Architects Daughter", cursive;
+  font-family: $font-1, cursive;
   text-align: center;
   font-size: 130%;
 }
