@@ -1,49 +1,16 @@
 import React, { useState } from "react";
-import ToDoItem from "./components/ToDoItem";
-import InputArea from "./components/InputArea";
+import Header from './components/Header';
+import TaskList from './components/TaskList';
 
 function App() {
-  const [taskList, setTaskList] = useState([]);
-
-  const addTask = (task) => {
-    setTaskList( prevTask => {
-      return [...prevTask, task];
-    });
-  };
-
-  const deleteTask = (id) => {
-    setTaskList(preValue => {
-      return preValue.filter( (currentItem, index) => {
-        return index !== id;
-      })
-    });
-  };
-
   return (
-    <div className="container">
-      <div className="heading">
-        <h1>To-Do List</h1>
+    <div className="todo-app">
+      <div className="container">
+        <Header />
+        <TaskList />
       </div>
-
-      <InputArea onAdd={addTask} />
-
-      <div className="list">
-        <ul>  
-          {
-            taskList.map((toDoItem, index) => (
-              <ToDoItem 
-                key={index} 
-                id={index} 
-                text={toDoItem} 
-                onDelete={deleteTask}
-              />
-            ))
-          }
-        </ul>
-      </div>
-
     </div>
   );
-}
+};
 
 export default App;

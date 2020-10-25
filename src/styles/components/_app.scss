@@ -2,8 +2,8 @@
   width: 100%;
   height: auto;
   min-height: 500px;
-  max-width: 500px;
-  min-width: 450px;
+  max-width: 600px;
+  min-width: 500px;
   background: #f1f5f8;
   // background-image: url("https://www.transparenttextures.com/patterns/dark-mosaic.png");  
   background-size: 25px 25px;
@@ -27,48 +27,14 @@
   }
 }
 
-.form {
-  margin-top: 3rem;
-  input {
-    box-sizing: border-box;
-    padding: 0.7rem;
-    border:none;
-    outline: none;
-    font-family: $font-1, cursive;
-    font-size: 1rem;
-    color: hsla(260, 2%, 25%, 0.7);
-    width: 70%;
-    margin-bottom: 20px;
-  }
-}
-
-.MuiButton-root{
-  font-family: $font-1, cursive !important;
-
-}
-
-button {
-  // padding: 0;
-  // border: none;
-  // text-decoration: none;
-  // padding-bottom: 3px;
-  // border-radius: 5px;
-  // background-color: #ffeaa7;
-  // cursor: pointer;
-  // span {
-  //   background: #f1f5f8;
-  //   display: block;
-  //   padding: 0.5rem 1rem;
-  //   border-radius: 5px;
-  //   border: 2px solid hsl(198, 1%, 29%);
-  // }
-}
-
 .list {
-  margin-top: 1rem;
+  width: 100%;
+  margin: 1rem auto;
 }
 
 ul {
+  list-style-type:none;
+
   list-style-position: inside;
 
   li {
@@ -76,9 +42,4 @@ ul {
     position: relative;
     padding: 0.5rem;
   }
-}
-
-.close {
-  cursor: pointer;
-  padding-left: 9rem;
 }
