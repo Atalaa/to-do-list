@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Turret+Road&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap');
 
-$font-1: 'Turret Road';
-$white: #ddd;
+
+
+$font-1: 'Coming Soon', cursive;
+$white: #fff;
 $black: #333;
 
 * {
@@ -12,6 +15,9 @@ $black: #333;
   padding: 0;
 }
 
+html{
+overflow-y: scroll;
+}
 
 body {
   background: #311b92;
@@ -25,9 +31,6 @@ body {
   color: hsl(198, 1%, 29%);
   font-family: $font-1, cursive;
   text-align: center;
-  font-size: 130%;
+  font-size: 130%; 
 }
 
-body {
-  
-}

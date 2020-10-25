@@ -23,22 +23,15 @@ const TaskForm = (props) => {
     <form className="form" onSubmit={handleSubmit}>
       <input 
         ref={inputEl}
-        className="task-input edit" 
-        maxLength = "30"
+        className="task-input" 
+        maxLength = "20"
         type="text"
         name="item" 
         value={task} 
         placeholder="Add a task..."
         onChange={handleChange} />
 
-      <button type="submit" 
-        className="task-button edit" 
-        variant="contained" 
-        style={{backgroundColor:'#fdcb6e'}}> 
-        
-        Add
-
-      </button>
+      <button type="submit" className="task-button">Add</button>
     </form>
   );
 };

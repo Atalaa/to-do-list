@@ -22,8 +22,8 @@ const TaskItem = (props) => {
     <div className={isDone ? 'taskItem done' : 'taskItem'}>
       <li >{props.text}</li>
       <div className="icons">
-        <EditIcon className="editIcon" onClick={() => setEdit(true)}/>
-        <DeleteIcon className="deleteIcon" onClick={() => props.onDelete(props.id)} />
+        <EditIcon onClick={() => setEdit(true)}/>
+        <DeleteIcon onClick={() => props.onDelete(props.id)} />
       </div>
     </div>
   );

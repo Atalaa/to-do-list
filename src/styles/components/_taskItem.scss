@@ -5,8 +5,8 @@
   margin: 4px auto;
   color: $white;
   background: linear-gradient(90deg, rgba(255, 118, 20, 1) 0%, rgba(255, 84, 17, 1) 100%);
-  padding: 16px;
-  border-radius: 5px;
+  padding: 5px 9px;
+  border-radius: 6px;
   width: 90%;
 
   &:nth-child(4n + 1) {
@@ -25,18 +25,9 @@
   }
 }
 
-.icons {
-  display: flex;
-  align-items: center;
-  font-size: 24px;
-  cursor: pointer;
-
-  .editIcon {
-    color: #fff;
-  }
-
-  .deleteIcon {
-    margin-right: 5px;
-    color: #fff;
-  }
+.icons > .MuiSvgIcon-root {
+  color: $white;
+  font-size: 1.2rem;
+  vertical-align: middle;
+  
 }
