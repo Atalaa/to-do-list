@@ -1,19 +1,37 @@
-.form {
-  margin-top: 3rem;
-  input {
-    box-sizing: border-box;
-    padding: 0.7rem;
-    border:none;
+.form{
+  margin-bottom: 32px;
+
+  .task-input{
+    padding: 14px 32px 14px 16px;
+    border-radius: 4px 0 0 4px;
+    border: 2px solid #5d0cff;
     outline: none;
-    font-family: $font-1, cursive;
-    font-size: 1rem;
-    color: hsla(260, 2%, 25%, 0.7);
-    width: 70%;
-    margin-bottom: 1rem;
-    margin-right: 1rem;
+    width: 320px;
+    background: transparent;
+    color: $black;
+
+    &::placeholder {
+      color: $black;
+    }
+
+    &.edit {
+      border: 2px solid #149fff;
+    }
   }
 
-  .MuiButton-root{
-    font-family: $font-1, cursive !important;
+  .task-button{
+    padding: 16px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    outline: none;
+    background: linear-gradient(90deg,rgba(93, 12, 255, 1) 0%,rgba(155, 0, 250, 1) 100%);
+    color: $white;
+    text-transform: capitalize;
+
+    &.edit{
+      background: linear-gradient(90deg,rgba(20, 159, 255, 1) 0%,rgba(17, 122, 255, 1) 100%);
+      padding: 16px 22px;
+    }
   }
 }

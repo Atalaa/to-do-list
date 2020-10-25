@@ -1,0 +1,15 @@
+  .heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 2rem;
+    
+    h1 {
+      color: $white;
+      transform: rotate(-6deg);
+      padding: 0.2rem 1.2rem;
+      border-radius: 5px;
+      background-color: #311b92;
+      font-size: 1.5rem;
+    }
+}

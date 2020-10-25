@@ -1,45 +1,14 @@
 .container {
+  background: #ffd600;
+  border-radius: 20px;
+  box-shadow: 4px 3px 7px 2px #00000040;
+  padding: 1rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  // justify-content: start;
   width: 100%;
   height: auto;
   min-height: 500px;
   max-width: 600px;
   min-width: 500px;
-  background: #f1f5f8;
-  // background-image: url("https://www.transparenttextures.com/patterns/dark-mosaic.png");  
-  background-size: 25px 25px;
-  border-radius: 20px;
-  box-shadow: 4px 3px 7px 2px #00000040;
-  padding: 1rem;
-  box-sizing: border-box;
-}
-.heading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 2rem 2rem;
-
-  h1 {
-    transform: rotate(-6deg);
-    padding: 0.2rem 1.2rem;
-    border-radius: 5px;
-    background-color: #fdcb6e;
-    font-size: 1.5rem;
-  }
-}
-
-.list {
-  width: 100%;
-  margin: 1rem auto;
-}
-
-ul {
-  list-style-type:none;
-
-  list-style-position: inside;
-
-  li {
-    text-align: left;
-    position: relative;
-    padding: 0.5rem;
-  }
 }

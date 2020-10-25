@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Button from '@material-ui/core/Button';
 
 const TaskForm = (props) => {
   const [task, setTask] = useState("");
@@ -21,29 +20,26 @@ const TaskForm = (props) => {
   }
 
   return (
-    <div className="form">
-      <form onSubmit={handleSubmit} className="task-form">
-        <input 
-          ref={inputEl}
-          className="task-input" 
-          maxLength = "20"
-          type="text"
-          name="item" 
-          value={task} 
-          placeholder="Add a task..."
-          onChange={handleChange} />
+    <form className="form" onSubmit={handleSubmit}>
+      <input 
+        ref={inputEl}
+        className="task-input edit" 
+        maxLength = "30"
+        type="text"
+        name="item" 
+        value={task} 
+        placeholder="Add a task..."
+        onChange={handleChange} />
 
-        <Button 
-          className="task-button" 
-          type="submit"
-          variant="contained" 
-          style={{backgroundColor:'#fdcb6e'}}> 
-          
-          Add
+      <button type="submit" 
+        className="task-button edit" 
+        variant="contained" 
+        style={{backgroundColor:'#fdcb6e'}}> 
+        
+        Add
 
-        </Button>
-      </form>
-    </div>
+      </button>
+    </form>
   );
 };
 

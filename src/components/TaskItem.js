@@ -5,7 +5,7 @@ import TaskForm from './TaskForm';
 
 
 const TaskItem = (props) => {
-  // const [isDone, setIsDone] = useState(false);
+  const [isDone, setIsDone] = useState(false);
   const [edit, setEdit] = useState(false);
 
   const handleEdit = value => {
@@ -17,13 +17,10 @@ const TaskItem = (props) => {
     return <TaskForm edit={edit} onAdd={handleEdit} />
   }
 
-  // <div className={isDone ? 'taskItem done' : 'taskItem'}> in return
 
   return (
-    <div>
-
-      <li style={{backgroundColor:'red'}}>{props.text}</li>
-
+    <div className={isDone ? 'taskItem done' : 'taskItem'}>
+      <li >{props.text}</li>
       <div className="icons">
         <EditIcon className="editIcon" onClick={() => setEdit(true)}/>
         <DeleteIcon className="deleteIcon" onClick={() => props.onDelete(props.id)} />

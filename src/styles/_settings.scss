@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Turret+Road&display=swap');
 
 $font-1: 'Turret Road';
+$white: #ddd;
+$black: #333;
 
 * {
   box-sizing: border-box;
@@ -10,9 +12,10 @@ $font-1: 'Turret Road';
   padding: 0;
 }
 
+
 body {
-  background-color: #d9e4dd;
-  background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+  background: #311b92;
+  background-image: url("https://www.transparenttextures.com/patterns/gradient-squares.png");  
   min-height: 70vh;
   padding: 1rem;
   box-sizing: border-box;
@@ -23,4 +26,8 @@ body {
   font-family: $font-1, cursive;
   text-align: center;
   font-size: 130%;
+}
+
+body {
+  
 }

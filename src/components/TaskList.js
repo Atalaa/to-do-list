@@ -41,7 +41,7 @@ const TaskList = () => {
 
       <TaskForm onAdd={addTask} />
 
-      <div className="list">
+      <div>
         <ul>        
           {
             taskList.map((currentItem, index) => (
