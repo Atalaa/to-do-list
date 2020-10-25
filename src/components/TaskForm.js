@@ -25,7 +25,7 @@ const TaskForm = (props) => {
       <form onSubmit={handleSubmit} className="task-form">
         <input 
           ref={inputEl}
-          className="task-input" //me 
+          className="task-input" 
           maxLength = "20"
           type="text"
           name="item" 
@@ -34,7 +34,7 @@ const TaskForm = (props) => {
           onChange={handleChange} />
 
         <Button 
-          className="task-button" //me
+          className="task-button" 
           type="submit"
           variant="contained" 
           style={{backgroundColor:'#fdcb6e'}}> 

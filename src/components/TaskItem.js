@@ -17,9 +17,9 @@ const TaskItem = (props) => {
     return <TaskForm edit={edit} onAdd={handleEdit} />
   }
 
+  // <div className={isDone ? 'taskItem done' : 'taskItem'}> in return
 
   return (
-    // <div className={isDone ? 'taskItem done' : 'taskItem'}>
     <div>
 
       <li style={{backgroundColor:'red'}}>{props.text}</li>
