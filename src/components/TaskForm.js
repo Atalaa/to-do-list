@@ -19,8 +19,9 @@ const TaskForm = (props) => {
     setTask("");
   }
 
+      // <form className="form" onSubmit={handleSubmit}> in return block
+
   return (
-    // <form className="form" onSubmit={handleSubmit}>
     <div>
     {
       props.edit ?
