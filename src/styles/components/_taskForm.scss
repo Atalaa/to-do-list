@@ -1,8 +1,16 @@
 .form{
   margin-bottom: 32px;
 
+  &.edit{
+    margin-bottom: 0px;
+  }
+
+  input[type=text]{
+    font-family: $font-1, 'cursive';
+  }
+
   .task-input{
-    padding: 16px 32px 17px 16px;
+    padding: 15px 32px 15px 16px;
     border-radius: 4px 0 0 4px;
     border: 2px solid #311b92;
     outline: none;
@@ -17,7 +25,7 @@
   }
 
   .task-button{
-    padding: 16px;
+    padding: 17px;
     border: none;
     border-radius: 0 4px 4px 0;
     cursor: pointer;

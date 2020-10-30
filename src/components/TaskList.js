@@ -4,7 +4,7 @@ import TaskItem from './TaskItem';
 
 const TaskList = () => {
   const [taskList, setTaskList] = useState([]);
-
+  
   const addTask = task => {
     if(!task || /^\s*$/.test(task)) { //avoid space typing
       return;
@@ -14,15 +14,14 @@ const TaskList = () => {
     }); 
   };
 
-  const editTask = (id, newText) => {
+  const updateTask = (id, newText) => {
     if(!newText || /^\s*$/.test(newText)) { //avoid space typing
       return;
     }
     setTaskList(preValue => {
       return preValue.map( (currentItem, index) => { 
-        console.log('newText', newText);
-        console.log('return', index === id ? newText : currentItem);
-        return (index === id ? newText : currentItem);
+        console.log('map', index === id ? newText : currentItem);
+        return (index === id ? newText : currentItem); //return all value string + the one edited - individually
       })
     });
   }
@@ -48,9 +47,9 @@ const TaskList = () => {
               <TaskItem 
                 key={index} 
                 id={index} 
-                text={currentItem} 
                 onDelete={deleteTask}
-                onEdit={editTask}
+                onEdit={updateTask}
+                text={currentItem} 
               />
             ))
           }
