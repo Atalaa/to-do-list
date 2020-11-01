@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const TaskForm = (props) => {
-  const [task, setTask] = useState(props.edit ? props.text : '');
+  // const [task, setTask] = useState(props.editId ? props.text : '');
+  const [task, setTask] = useState('');
   const inputEl = useRef(null);
 
   useEffect(() => {
@@ -15,17 +17,34 @@ const TaskForm = (props) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.onAdd(task);
+    // props.onAdd(task);
+    props.onAdd({
+      task: task, 
+      id: uuidv4()
+    });
     setTask("");
   }
 
-      // <form className="form" onSubmit={handleSubmit}> in return block
-
   return (
-    <div>
-    {
-      props.edit ?
-      <form className="form edit" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
+      <input 
+          ref={inputEl}
+          className="task-input" 
+          maxLength = "20"
+          type="text"
+          name="item" 
+          value={task} 
+          placeholder={"Add a task ..."}
+          onChange={handleChange} 
+        />
+      <button type="submit" className="task-button">Add</button>
+    </form>
+
+
+    /* {
+      props.editId ?
+
+      <>
         <input 
           ref={inputEl}
           className="task-input edit" 
@@ -45,11 +64,9 @@ const TaskForm = (props) => {
           Save
           
         </button>
-      </form>
-
+      </>
       :
-
-      <form className="form" onSubmit={handleSubmit}>
+      <>
         <input 
           ref={inputEl}
           className="task-input" 
@@ -61,10 +78,8 @@ const TaskForm = (props) => {
           onChange={handleChange} 
         />
         <button type="submit" className="task-button">Add</button>
-      </form>
-    }
-    
-    </div>
+      </>
+    } */
   );
 };
 
