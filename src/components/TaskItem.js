@@ -3,7 +3,6 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 
 
-
 const TaskItem = (props) => {
 
   const [isDone, setIsDone] = useState(false);
@@ -20,33 +19,20 @@ const TaskItem = (props) => {
     props.setInputValue(newVvalue);
   };
 
+  const handleEdit = e => {
+    e.preventDefault();
+    props.onEdit(props.currentItem.id, props.inputValue);
 
-  // const handleEdit = e => {
-  //   e.preventDefault();
-  //   props.onEdit(props.currentItem.id, inputValue)    
+  }
 
-
-  //   setSaveEdit(prevState => {
-  //     return !prevState;
-  //   })
-  // };
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-    
-  //   props.onEdit(props.currentItem.id, props.inputValue);
-  //   // props.onAdd({
-  //   //   task: props.inputValue, 
-  //   //   // id: props.currentItem.id
-  //   // });
-  // }
 
   return (
-    <div className={isDone ? 'taskItem done' : 'taskItem'} >
-
+    <>
       {
         props.editId === props.currentItem.id &&
+        <div>
 
-          <form className="form">
+          <form className="form edit" onSubmit={handleEdit}>
             <input 
                 ref={inputEl}
                 className="task-input edit" 
@@ -58,30 +44,31 @@ const TaskItem = (props) => {
                 onChange={handleChange} 
                 style={{border:'2px solid #1dd1a1'}}
             />
-            <button onClick={ () => props.onEdit(props.currentItem.id, props.inputValue) }
+            <button 
               type="submit" 
               className="task-button edit" 
               style={{color: '#333', backgroundColor:'#1dd1a1'}}>
               Save
             </button>
           </form>
+        </div>
       }
 
       {
         props.editId !== props.currentItem.id &&
 
-      <>
-        <li>{props.currentItem.task}</li>
+        <div className={isDone ? 'taskItem done' : 'taskItem'} >
 
-        <div className="icons">
-          <EditIcon onClick={() => props.handleEditChange(props.currentItem.id, props.currentItem.task)} />
-          <DeleteIcon onClick={() => props.onDelete(props.id)} />
+          <li>{props.currentItem.task}</li>
+
+          <div className="icons">
+            <EditIcon onClick={() => props.handleEditChange(props.currentItem.id, props.currentItem.task)} />
+            <DeleteIcon onClick={() => props.onDelete(props.id)} />
+          </div>
+
         </div>
-        </>
       }
-        
-      
-    </div> 
+    </>
   );
 };
 

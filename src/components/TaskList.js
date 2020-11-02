@@ -18,7 +18,7 @@ const TaskList = () => {
   const [taskList, setTaskList] = useState([]);
 
   const addTask = task => {
-    if(!task || /^\s*$/.test(task)) { //avoid space typing
+    if(!task.task || /^\s*$/.test(task.task)) { //avoid space typing
       return;
     }
     setTaskList( prevTask => {
@@ -26,17 +26,6 @@ const TaskList = () => {
     }); 
   };
 
-  // const updateTask = (id, newText) => {
-  //   if(!newText || /^\s*$/.test(newText)) { //avoid space typing
-  //     return;
-  //   }
-  //   setTaskList(preValue => {
-  //     return preValue.map( (currentItem, index) => { 
-  //       console.log('map', index === id ? newText : currentItem);
-  //       return (index === id ? newText : currentItem); //return the one edited 
-  //     })
-  //   });
-  // }
 
   const updateTask = (id, newText) => {
     if(!newText || /^\s*$/.test(newText)) { //avoid space typing
@@ -44,11 +33,10 @@ const TaskList = () => {
     }
     setTaskList(preValue => {
       return preValue.map( currentItem => { 
-        console.log('map', currentItem.id === id ? newText : currentItem);
         if(currentItem.id === id) {
           currentItem.task = newText;
         } 
-        return currentItem
+        return currentItem;
       })
     });
     setEdit(false);
@@ -63,7 +51,7 @@ const TaskList = () => {
     });
   };
 
-console.log(taskList);
+
   return (
     <div>
 
