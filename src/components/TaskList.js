@@ -10,9 +10,10 @@ const TaskList = () => {
   // One variable that holds the id , can be erased. If in TaskItem it will create new one for each li and state won't change
   const [editId, setEdit] = useState(false);
 
-  const handleEditChange = (id, text) => {
+  const handleEditChange = (id, text, setIsAnimated) => {
     setEdit(id);
     setInputValue(text);
+    setIsAnimated(true);
   };
 
   const [taskList, setTaskList] = useState([]);
@@ -22,7 +23,7 @@ const TaskList = () => {
       return;
     }
     setTaskList( prevTask => {
-      return [task, ...prevTask];
+      return [...prevTask, task];
     }); 
   };
 
@@ -58,7 +59,7 @@ const TaskList = () => {
       <TaskForm onAdd={addTask} />
 
       <div>
-        <ul>        
+        <ul>    
           {
             taskList.map((currentItem, index) => (
               <TaskItem 

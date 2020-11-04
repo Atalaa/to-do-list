@@ -1,12 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
+import 'animate.css/animate.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+
 
 
 const TaskItem = (props) => {
 
-  const [isDone, setIsDone] = useState(false);
+  const [isEditAnimated, setIsEditAnimated] = useState(false);
+  const [isDeleteAnimated, setIsDeleteAnimated] = useState(false);
   const inputEl = useRef(null);
+
   
   useEffect(() => {
     if(props.editId === props.currentItem.id){
@@ -22,7 +28,10 @@ const TaskItem = (props) => {
   const handleEdit = e => {
     e.preventDefault();
     props.onEdit(props.currentItem.id, props.inputValue);
+  }
 
+  const del = () => {
+    props.onDelete(props.id);
   }
 
 
@@ -54,18 +63,21 @@ const TaskItem = (props) => {
         </div>
       }
 
-      {
+
+      {////className="fas fa-pencil"
         props.editId !== props.currentItem.id &&
 
-        <div className={isDone ? 'taskItem done' : 'taskItem'} >
+        <div className={isEditAnimated ? 'taskItem' : 'taskItem animate__animated animate__zoomIn'} >
 
           <li>{props.currentItem.task}</li>
 
-          <div className="icons">
-            <EditIcon onClick={() => props.handleEditChange(props.currentItem.id, props.currentItem.task)} />
-            <DeleteIcon onClick={() => props.onDelete(props.id)} />
+          <div className="icons"> 
+            <FontAwesomeIcon icon={faEdit} fixedWidth onClick={() => props.handleEditChange(props.currentItem.id, props.currentItem.task, setIsEditAnimated)} />
+            {/* <EditIcon onClick={() => props.handleEditChange(props.currentItem.id, props.currentItem.task, setIsEditAnimated)} /> */}
+            {/* <FontAwesomeIcon icon="spinner" spin onClick={() => props.handleEditChange(props.currentItem.id, props.currentItem.task, setIsEditAnimated)} /> */}
+            <FontAwesomeIcon icon={faTrash} fixedWidth onClick={del}/>
+            {/* <DeleteIcon onClick={() => props.onDelete(props.id, setIsDeleteAnimated)}/> */}
           </div>
-
         </div>
       }
     </>
