@@ -32,7 +32,7 @@
   }
 
   //delete
-  &.animate__animated.animate__zoomOut {
+  &.animate__animated.animate__hinge {
     --animate-duration: .3s;
   }
 }
@@ -46,7 +46,7 @@
   cursor: pointer;
 }
 
-.fa-trash {
+.fa-trash-alt {
   vertical-align: middle;
   cursor: pointer;
 }

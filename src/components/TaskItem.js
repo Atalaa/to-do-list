@@ -3,7 +3,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import 'animate.css/animate.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -20,6 +20,7 @@ const TaskItem = (props) => {
     }
   });
 
+
   const handleChange = e => {
     const newVvalue = e.target.value;
     props.setInputValue(newVvalue);
@@ -31,7 +32,14 @@ const TaskItem = (props) => {
   }
 
   const del = () => {
-    props.onDelete(props.id);
+    
+
+    setTimeout( () => {
+      props.onDelete(props.id); 
+      setIsDeleteAnimated(false);
+    }, 300);
+
+
   }
 
 
@@ -60,25 +68,40 @@ const TaskItem = (props) => {
               Save
             </button>
           </form>
+
         </div>
       }
+     
 
-
-      {////className="fas fa-pencil"
+      {
         props.editId !== props.currentItem.id &&
 
-        <div className={isEditAnimated ? 'taskItem' : 'taskItem animate__animated animate__zoomIn'} >
+        <div className={ isDeleteAnimated ? 'animate__animated animate__zoomOut' : '' } onClick={() => del()}>
 
-          <li>{props.currentItem.task}</li>
 
-          <div className="icons"> 
-            <FontAwesomeIcon icon={faEdit} fixedWidth onClick={() => props.handleEditChange(props.currentItem.id, props.currentItem.task, setIsEditAnimated)} />
-            {/* <EditIcon onClick={() => props.handleEditChange(props.currentItem.id, props.currentItem.task, setIsEditAnimated)} /> */}
-            {/* <FontAwesomeIcon icon="spinner" spin onClick={() => props.handleEditChange(props.currentItem.id, props.currentItem.task, setIsEditAnimated)} /> */}
-            <FontAwesomeIcon icon={faTrash} fixedWidth onClick={del}/>
-            {/* <DeleteIcon onClick={() => props.onDelete(props.id, setIsDeleteAnimated)}/> */}
+          <div className={isEditAnimated ? 'taskItem' : 'taskItem animate__animated animate__zoomIn'} >
+
+              <li>{props.currentItem.task}</li>
+
+            <div className="icons"> 
+              <FontAwesomeIcon 
+                onClick={() => props.handleEditChange(props.currentItem.id, props.currentItem.task, setIsEditAnimated)} 
+                icon={faEdit} 
+                fixedWidth  
+              />
+              
+              <FontAwesomeIcon 
+                onClick={() => setIsDeleteAnimated(true) } 
+                // onClick={() => {setIsDeleteAnimated(true); del()} } 
+                icon={faTrashAlt} 
+                fixedWidth 
+              />
+            </div>
+
           </div>
+
         </div>
+
       }
     </>
   );
