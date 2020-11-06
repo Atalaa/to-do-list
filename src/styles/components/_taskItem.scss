@@ -8,15 +8,31 @@
   border-radius: 6px;
   width: 90%;
 
+  transition: background-color .2s ease-out;
+ 
 
   &:nth-child(3n+1) { //1 4 7
     background: linear-gradient(90deg, rgba(20, 159, 255, 1) 0%, rgba(17, 122, 255, .8) 100%);
+    &:hover {
+      background-color: rgba(17, 122, 255, 1) ;
+      color:#ddd;
+    }
   }
+
   &:nth-child(3n+2) { //2 5 8
     background: linear-gradient(90deg, rgba(255, 118, 20, 1) 0%, rgba(255, 84, 17, .8) 100%);
+    &:hover {
+      background-color: rgba(255, 84, 17, 1) ;
+      color:#ddd;
+    }
   }
+
   &:nth-child(3n+3) { //3 6 9
-  background: linear-gradient(90deg, 	rgba(87, 200, 77, 1) 0%, rgba(46, 182, 44, 1)  100%);
+    background: linear-gradient(90deg, 	rgba(87, 200, 77, 1) 0%, rgba(46, 182, 44, 1)  100%);
+    &:hover {
+      background-color:	rgba(46, 182, 44, 1);
+      color:#ddd;
+    }
   }
 
   // &.complete {
@@ -24,42 +40,17 @@
   //   opacity: 0.4;
   // }
 
-  // animation: popup .3s ease-out 0s;
 
   //edit
   &.animate__animated.animate__zoomIn {
     --animate-duration: .3s;
   }
-
-  //delete
-  &.animate__animated.animate__hinge {
-    --animate-duration: .3s;
-  }
 }
 
 .icons {
-  font-size: 20px;
+  font-size: 0px;
 }
-
-.fa-edit {
-  vertical-align: middle;
+.icons > .MuiSvgIcon-root {
+  vertical-align: center;
   cursor: pointer;
 }
-
-.fa-trash-alt {
-  vertical-align: middle;
-  cursor: pointer;
-}
-
-
-// @keyframes popup {
-//   0% {
-//       opacity: 0;
-//       transform: scale(.5, .5);
-//   }
-
-//   100% {
-//       opacity: 1;
-//       transform: scale(1, 1);
-//   }
-// }

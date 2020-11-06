@@ -1,21 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
 import 'animate.css/animate.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import EditIcon from '@material-ui/icons/Edit';
 
 
-
-const TaskItem = (props) => {
+const TaskItem = ({id, onDelete, editId, currentItem, onEdit, inputValue, setInputValue, handleEditChange }) => {
 
   const [isEditAnimated, setIsEditAnimated] = useState(false);
-  const [isDeleteAnimated, setIsDeleteAnimated] = useState(false);
   const inputEl = useRef(null);
 
   
   useEffect(() => {
-    if(props.editId === props.currentItem.id){
+    if(editId === currentItem.id){
       inputEl.current.focus();
     }
   });
@@ -23,30 +19,22 @@ const TaskItem = (props) => {
 
   const handleChange = e => {
     const newVvalue = e.target.value;
-    props.setInputValue(newVvalue);
+    setInputValue(newVvalue);
   };
+
 
   const handleEdit = e => {
     e.preventDefault();
-    props.onEdit(props.currentItem.id, props.inputValue);
+    onEdit(currentItem.id, inputValue);
   }
 
-  const del = () => {
-    
 
-    setTimeout( () => {
-      props.onDelete(props.id); 
-      setIsDeleteAnimated(false);
-    }, 300);
-
-
-  }
 
 
   return (
     <>
       {
-        props.editId === props.currentItem.id &&
+        editId === currentItem.id &&
         <div>
 
           <form className="form edit" onSubmit={handleEdit}>
@@ -56,7 +44,7 @@ const TaskItem = (props) => {
                 maxLength = "20"   
                 type="text"
                 name="item" 
-                value={props.inputValue} 
+                value={inputValue} 
                 placeholder={"Edit your task ..."}
                 onChange={handleChange} 
                 style={{border:'2px solid #1dd1a1'}}
@@ -74,34 +62,21 @@ const TaskItem = (props) => {
      
 
       {
-        props.editId !== props.currentItem.id &&
-
-        <div className={ isDeleteAnimated ? 'animate__animated animate__zoomOut' : '' } onClick={() => del()}>
-
+        editId !== currentItem.id &&
 
           <div className={isEditAnimated ? 'taskItem' : 'taskItem animate__animated animate__zoomIn'} >
 
-              <li>{props.currentItem.task}</li>
-
+            <li>{currentItem.task}</li>
             <div className="icons"> 
-              <FontAwesomeIcon 
-                onClick={() => props.handleEditChange(props.currentItem.id, props.currentItem.task, setIsEditAnimated)} 
-                icon={faEdit} 
-                fixedWidth  
+              <EditIcon 
+                onClick={() => handleEditChange(currentItem.id, currentItem.task, setIsEditAnimated)} 
               />
-              
-              <FontAwesomeIcon 
-                onClick={() => setIsDeleteAnimated(true) } 
-                // onClick={() => {setIsDeleteAnimated(true); del()} } 
-                icon={faTrashAlt} 
-                fixedWidth 
+
+              <DeleteForeverIcon 
+                onClick={() => onDelete(id)}
               />
             </div>
-
           </div>
-
-        </div>
-
       }
     </>
   );
