@@ -3,6 +3,7 @@ import TaskForm from './TaskForm';
 import TaskItem from './TaskItem';
 
 const TaskList = () => {
+  const [taskList, setTaskList] = useState([]);
 
   //Save input value in input box
   const [inputValue, setInputValue] = useState("");
@@ -10,14 +11,13 @@ const TaskList = () => {
   // One variable that holds the id , can be erased. If in TaskItem it will create new one for each li and state won't change
   const [editId, setEdit] = useState(false);
 
+
   const handleEditChange = (id, text, setIsEditAnimated) => {
     setEdit(id);
     setInputValue(text);
     setIsEditAnimated(true);
   };
 
-
-  const [taskList, setTaskList] = useState([]);
 
   const addTask = task => {
     if(!task.task || /^\s*$/.test(task.task)) { //avoid space typing
@@ -54,6 +54,13 @@ const TaskList = () => {
   };
 
 
+  // const taskDone = id => {
+  //   let doneList = taskList.map( (item , index) => {
+
+  //   });
+  // }
+
+
   return (
     <div>
 
@@ -70,6 +77,7 @@ const TaskList = () => {
                 onDelete={deleteTask}
                 onEdit={updateTask}
                 currentItem={currentItem} 
+                taskDone={taskDone}
 
                 inputValue={inputValue}
                 setInputValue={setInputValue}

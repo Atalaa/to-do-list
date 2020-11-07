@@ -4,7 +4,15 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import EditIcon from '@material-ui/icons/Edit';
 
 
-const TaskItem = ({id, onDelete, editId, currentItem, onEdit, inputValue, setInputValue, handleEditChange }) => {
+const TaskItem = ({id, 
+                  onDelete, 
+                  editId, 
+                  currentItem, 
+                  onEdit, 
+                  inputValue, 
+                  setInputValue, 
+                  handleEditChange, 
+                  taskDone }) => {
 
   const [isEditAnimated, setIsEditAnimated] = useState(false);
   const inputEl = useRef(null);
