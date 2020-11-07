@@ -41,7 +41,7 @@ const TaskItem = ({id, onDelete, editId, currentItem, onEdit, inputValue, setInp
             <input 
                 ref={inputEl}
                 className="task-input edit" 
-                maxLength = "20"   
+                maxLength = "30"   
                 type="text"
                 name="item" 
                 value={inputValue} 

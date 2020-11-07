@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-const TaskForm = (props) => {
+const TaskForm = ({onAdd}) => {
   const [task, setTask] = useState('');
   const inputEl = useRef(null);
 
@@ -16,7 +16,7 @@ const TaskForm = (props) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.onAdd({
+    onAdd({
       task: task, 
       id: uuidv4()
     });
@@ -28,7 +28,7 @@ const TaskForm = (props) => {
       <input 
           ref={inputEl}
           className="task-input" 
-          maxLength = "20"
+          maxLength = "30"
           type="text"
           name="item" 
           value={task} 
