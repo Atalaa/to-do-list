@@ -11,8 +11,10 @@ const TaskItem = ({id,
                   onEdit, 
                   inputValue, 
                   setInputValue, 
-                  handleEditChange, 
-                  taskDone }) => {
+                  handleEditChange,
+                  completed,
+                  completedTask 
+                 }) => {
 
   const [isEditAnimated, setIsEditAnimated] = useState(false);
   const inputEl = useRef(null);
@@ -35,8 +37,6 @@ const TaskItem = ({id,
     e.preventDefault();
     onEdit(currentItem.id, inputValue);
   }
-
-
 
 
   return (
@@ -72,14 +72,17 @@ const TaskItem = ({id,
       {
         editId !== currentItem.id &&
 
-          <div className={isEditAnimated ? 'taskItem' : 'taskItem animate__animated animate__zoomIn'} >
+          <div className={isEditAnimated ? 'taskItem' : 'taskItem animate__animated animate__zoomIn'}>
 
-            <li>{currentItem.task}</li>
+            <li className={completed ? 'completed' : ''} 
+                onClick={() => completedTask(currentItem.id)}>
+                {currentItem.task}
+            </li>
+
             <div className="icons"> 
               <EditIcon 
                 onClick={() => handleEditChange(currentItem.id, currentItem.task, setIsEditAnimated)} 
               />
-
               <DeleteForeverIcon 
                 onClick={() => onDelete(id)}
               />

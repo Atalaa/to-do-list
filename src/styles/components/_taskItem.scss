@@ -7,7 +7,6 @@
   padding: 5px 9px;
   border-radius: 6px;
   width: 90%;
-
   transition: all .3s ease-out; //all: bg color & color
  
 
@@ -15,7 +14,6 @@
     background: linear-gradient(90deg, rgba(20, 159, 255, 1) 0%, rgba(17, 122, 255, .8) 100%);
     &:hover {
       background-color: rgba(17, 122, 255, 1) ;
-      color: #585858;
     }
   }
 
@@ -23,7 +21,6 @@
     background: linear-gradient(90deg, rgba(255, 118, 20, 1) 0%, rgba(255, 84, 17, .8) 100%);
     &:hover {
       background-color: rgba(255, 84, 17, 1) ;
-      color: #585858;
     }
   }
 
@@ -31,25 +28,46 @@
     background: linear-gradient(90deg, 	rgba(87, 200, 77, 1) 0%, rgba(46, 182, 44, 1)  100%);
     &:hover {
       background-color:	rgba(87, 200, 77, 1);
-      color: #585858;
     }
   }
 
-  // &.complete {
-  //   text-decoration: line-through;
-  //   opacity: 0.4;
-  // }
+  .icons {
+    transition: all .3s ease-out; //all: bg color & color
+    font-size: 0px;
+    &:hover {
+      color: #585858;
+    }
 
+    .MuiSvgIcon-root {
+      cursor: pointer;
+    }
+  }
 
   //edit
   &.animate__animated.animate__zoomIn {
     --animate-duration: .3s;
   }
+
+  .completed {
+    opacity:.6;
+
+    &::before{
+      content:'';
+      position:absolute;
+      top:45%;
+      left:0rem;
+      display:block;
+      width:0%;
+      height:2px;
+      background:#383838;
+      animation:strike .3s ease-out 0s forwards;
+    }
+  }
 }
 
-.icons {
-  font-size: 0px;
-}
-.icons > .MuiSvgIcon-root {
-  cursor: pointer;
+
+@keyframes strike {
+  to {
+    width: calc(100%);
+  }
 }

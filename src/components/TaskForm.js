@@ -18,7 +18,8 @@ const TaskForm = ({onAdd}) => {
     e.preventDefault();
     onAdd({
       task: task, 
-      id: uuidv4()
+      id: uuidv4(),
+      completed: false
     });
     setTask("");
   }

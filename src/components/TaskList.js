@@ -33,8 +33,8 @@ const TaskList = () => {
     if(!newText || /^\s*$/.test(newText)) { //avoid space typing
       return;
     }
-    setTaskList(preValue => {
-      return preValue.map( currentItem => { 
+    setTaskList(prevValue => {
+      return prevValue.map( currentItem => { 
         if(currentItem.id === id) {
           currentItem.task = newText;
         } 
@@ -45,26 +45,30 @@ const TaskList = () => {
   };
 
 
-  const deleteTask = (id) => {
-    setTaskList(preValue => {
-      return preValue.filter( (currentItem, index) => {
+  const deleteTask = id => {
+    setTaskList(prevValue => {
+      return prevValue.filter( (currentItem, index) => {
         return index !== id;
       })
     });  
   };
 
 
-  // const taskDone = id => {
-  //   let doneList = taskList.map( (item , index) => {
-
-  //   });
-  // }
+  const completeTask = id => {
+    setTaskList(taskList.map( currentItem => { 
+        if(currentItem.id === id) {
+          currentItem.completed = !currentItem.completed;
+        } 
+        return currentItem;
+    }));
+  };
 
 
   return (
     <div>
 
-      <TaskForm onAdd={addTask} />
+      <TaskForm onAdd={addTask} 
+/>
 
       <div>
         <ul>    
@@ -77,12 +81,14 @@ const TaskList = () => {
                 onDelete={deleteTask}
                 onEdit={updateTask}
                 currentItem={currentItem} 
-                taskDone={taskDone}
 
                 inputValue={inputValue}
                 setInputValue={setInputValue}
                 handleEditChange={handleEditChange}
                 editId={editId}
+
+                completed={currentItem.completed}  
+                completedTask={completeTask}
               />
             ))
           }
