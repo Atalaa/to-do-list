@@ -12,7 +12,7 @@
   .task-input{
     padding: 15px 32px 15px 16px;
     border-radius: 4px 0 0 4px;
-    border: 2px solid #311b92;
+    border: 2px solid $color-3;
     outline: none;
     width: 320px;
     background: transparent;
@@ -30,7 +30,7 @@
     border-radius: 0 4px 4px 0;
     cursor: pointer;
     outline: none;
-    background: #311b92;
+    background: $color-3;
     color: $white;
     text-transform: capitalize;
     font-family: $font-1;

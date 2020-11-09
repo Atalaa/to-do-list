@@ -13,21 +13,21 @@
   &:nth-child(3n+1) { //1 4 7
     background: linear-gradient(90deg, rgba(20, 159, 255, 1) 0%, rgba(17, 122, 255, .8) 100%);
     &:hover {
-      background-color: rgba(17, 122, 255, 1) ;
+      background-color: rgb(7, 77, 168) ;
     }
   }
 
   &:nth-child(3n+2) { //2 5 8
     background: linear-gradient(90deg, rgba(255, 118, 20, 1) 0%, rgba(255, 84, 17, .8) 100%);
     &:hover {
-      background-color: rgba(255, 84, 17, 1) ;
+      background-color: rgb(156, 52, 11) ;
     }
   }
 
   &:nth-child(3n+3) { //3 6 9
-    background: linear-gradient(90deg, 	rgba(87, 200, 77, 1) 0%, rgba(46, 182, 44, 1)  100%);
+    background: linear-gradient(90deg, 	rgba(87, 200, 77, 1) 0%, rgba(46, 182, 44, .8)  100%);
     &:hover {
-      background-color:	rgba(87, 200, 77, 1);
+      background-color:	rgb(36, 97, 31);
     }
   }
 
@@ -59,7 +59,7 @@
       display:block;
       width:0%;
       height:2px;
-      background:#383838;
+      background:$white;
       animation:strike .3s ease-out 0s forwards;
     }
   }
